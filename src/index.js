@@ -25,23 +25,72 @@ const users = [
 ];
 const tweets = [
     {
-	    username: "bobesponja",
+	    username: "bobesponja1",
         tweet: "eu amo o hub",
     },
     {
-	    username: "bobesponja",
+	    username: "bobesponja2",
         tweet: "eu amo o hub",
     },
     {
-	    username: "bobesponja",
+	    username: "bobesponja3",
         tweet: "eu amo o hub",
     },
+    {
+	    username: "bobesponja4",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja5",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja6",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja7",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja8",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja9",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja10",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja11",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja12",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja13",
+        tweet: "eu amo o hub",
+    },
+    {
+	    username: "bobesponja14",
+        tweet: "eu amo o hub",
+    }
 ];
 
 app.post("/sign-up", (req, res) => {
     const user = req.body;
     users.push(user);
     res.send("OK");
+})
+
+app.get("/tweets", (req, res) => {
+    const mainTweets = tweets.reverse().slice(0, 10)
+    res.send(mainTweets.reverse());
 })
 
 app.post("/tweets", (req, res) => {
