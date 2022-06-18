@@ -11,7 +11,7 @@ const tweets = [];
 app.post("/sign-up", (req, res) => {
     const user = req.body;
     
-    ///tratamento do bonus
+    
     if(user.username === "" || user.avatar === "") {
         res.status(400).send("Todos os campos são obrigatórios!");
     }
