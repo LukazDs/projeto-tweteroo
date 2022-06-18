@@ -38,16 +38,14 @@ const tweets = [
     },
 ];
 
-const tweet =
-    {
-	    username: "bobesponja",
-        tweet: "eu amo o hub",
-    }
-
 app.post("/sign-up", (req, res) => {
     const user = req.body;
     users.push(user);
     res.send("OK");
+})
+
+app.post("/tweets", (req, res) => {
+    const tweet = req.body;
 })
 
 app.listen(5000);
