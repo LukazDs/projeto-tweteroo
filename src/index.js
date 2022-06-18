@@ -46,6 +46,7 @@ const tweet =
 
 app.post("/sign-up", (req, res) => {
     const user = req.body;
+    users.push(user);
 })
 
 app.listen(5000);
