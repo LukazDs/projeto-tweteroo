@@ -44,6 +44,11 @@ app.get("/tweets", (req, res) => {
 
 app.post("/tweets", (req, res) => {
     const tweet = req.body;
+
+    if(tweet.username === "" || tweet.tweet === "") {
+        res.status(400).send("Todos os campos são obrigatórios!");
+    }
+
     tweets.push(tweet);
     
     if (tweets.length > 1) {
