@@ -7,6 +7,7 @@ app.use(express.json())
 
 const users = [];
 const tweets = [];
+const userTweets = [];
 
 app.post("/sign-up", (req, res) => {
     const user = req.body;
@@ -20,7 +21,7 @@ app.post("/sign-up", (req, res) => {
     res.status(201).send("OK");
 })
 
-app.get("/tweets", (req, res) => {
+app.get("/tweets/", (req, res) => {
 
     let initial = 0;
     let end = 0;
@@ -39,6 +40,8 @@ app.get("/tweets", (req, res) => {
 
     lastTweets.map((v, i) => v.avatar = lastUsers[i].avatar);
 
+    lastTweets.map(v => userTweets.push(v))
+
     res.send(lastTweets.reverse());
 })
 
@@ -55,6 +58,13 @@ app.post("/tweets", (req, res) => {
         users.push(users[users.length - 1])
     }
     res.status(201).send("OK");
+})
+
+app.get("/tweets/:USERNAME", (req, res) => {
+    const USERNAME = req.params.USERNAME;
+
+    res.send(userTweets.filter(v => v.username === USERNAME));
+    
 })
 
 app.listen(5000);
