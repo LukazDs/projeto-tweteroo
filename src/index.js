@@ -21,7 +21,9 @@ app.post("/sign-up", (req, res) => {
     res.status(201).send("OK");
 })
 
-app.get("/tweets/", (req, res) => {
+app.get("/tweets", (req, res) => {
+
+    let page = req.query.page;
 
     let initial = 0;
     let end = 0;
