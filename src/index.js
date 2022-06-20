@@ -11,13 +11,13 @@ const tweets = [];
 app.post("/sign-up", (req, res) => {
     const user = req.body;
     
-    
+    ///tratamento do bonus
     if(user.username === "" || user.avatar === "") {
         res.status(400).send("Todos os campos são obrigatórios!");
     }
 
     users.push(user);
-    res.send("OK");
+    res.status(201).send("OK");
 })
 
 app.get("/tweets", (req, res) => {
@@ -54,7 +54,7 @@ app.post("/tweets", (req, res) => {
     if (tweets.length > 1) {
         users.push(users[users.length - 1])
     }
-    res.send("OK");
+    res.status(201).send("OK");
 })
 
 app.listen(5000);
